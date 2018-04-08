@@ -25,10 +25,15 @@ module.exports = {
             {
                 test: /\.ts$/,
                 loaders: [
-                    'awesome-typescript-loader',                     
-                    'angular-router-loader'
+                    'awesome-typescript-loader'
                 ]
-            }            
+            },
+            {
+                test: /\.(ts|js)$/,
+                loaders: [
+                  'angular-router-loader?aot=true'
+                ]
+            }              
         ]
     },
 
