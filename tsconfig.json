@@ -61,6 +61,6 @@
     "skipMetadataEmit" : true
   },
   "exclude": [
-    "./src/app.ts"
+    "./src/boot.aot.ts"
   ]
 }

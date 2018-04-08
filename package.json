@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile": "./node_modules/.bin/ngc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "webpack": "./node_modules/.bin/webpack",
+    "cleanup": "./node_modules/.bin/rimraf ./aot ./build",
+    "compile": "npm run cleanup && ./node_modules/.bin/ngc",
+    "build": "npm run compile && ./node_modules/.bin/webpack"    
   },
   "keywords": [],
   "author": "",
@@ -29,6 +31,7 @@
     "angular-router-loader": "^0.8.3",
     "awesome-typescript-loader": "^5.0.0",
     "html-webpack-plugin": "^3.2.0",
+    "rimraf": "^2.6.2",
     "typescript": "^2.8.1",
     "webpack": "^4.5.0",
     "webpack-cli": "^2.0.14",
