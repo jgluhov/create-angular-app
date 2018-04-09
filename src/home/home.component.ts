@@ -2,7 +2,10 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'home',
-  template: '<h1>Home page</h1>'
+  template: `    
+    <p>SharedCanvas</p>
+    <canvas #canvas></canvas>
+  `
 })
 
 export class HomeComponent {

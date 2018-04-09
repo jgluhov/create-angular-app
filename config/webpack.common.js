@@ -1,4 +1,5 @@
 const webpackMerge = require('webpack-merge');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpackBase = require('./webpack.base');
 const helpers = require('./helpers');
 
