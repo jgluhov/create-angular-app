@@ -18,3 +18,7 @@ testing.TestBed.initTestEnvironment(
     browser.BrowserDynamicTestingModule, 
     browser.platformBrowserDynamicTesting()
 );
+
+const appContext = require.context('.', true, /\.spec.ts$/);
+
+appContext.keys().forEach(appContext);

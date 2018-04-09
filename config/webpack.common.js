@@ -1,30 +1,10 @@
-const path = require('path');
-const webpack = require('webpack');
+const webpackMerge = require('webpack-merge');
+const webpackBase = require('./webpack.base');
 const helpers = require('./helpers');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
+module.exports = webpackMerge(webpackBase, {
     entry: {
         polyfills: './src/polyfills.ts'
-    },
-
-    resolve: {
-        extensions: ['.ts', '.js']    
-    },
-
-    module: {
-        rules: [
-            {
-                test: /\.ts$/,
-                loaders: [
-                    'awesome-typescript-loader'    
-                ]           
-            }           
-        ]
-    },
-
-    output: {
-        path: helpers.root('docs')
     },
 
     optimization: {
@@ -42,10 +22,6 @@ module.exports = {
     },
 
     plugins: [
-        new webpack.ContextReplacementPlugin(
-            /\@angular(\\|\/)core(\\|\/)esm5/, 
-            helpers.root('src')
-        ),
         new HtmlWebpackPlugin({
             template: './src/index.html',
             minify: {
@@ -53,4 +29,4 @@ module.exports = {
             }
         })
     ]
-}
+});
