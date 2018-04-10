@@ -8,13 +8,13 @@ const homeRoutes: Routes = [
         path: '',
         component: HomeComponent
     }
-]
+];
 
 @NgModule({
   imports: [
-      CommonModule, 
+      CommonModule,
       RouterModule.forChild(homeRoutes)
     ],
   declarations: [HomeComponent]
 })
-export class HomeModule { }
+export class HomeModule {}

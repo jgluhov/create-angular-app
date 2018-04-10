@@ -6,7 +6,7 @@ import { HomeComponent } from './home.component';
 describe('HomeComponent: Spec', () => {
     let fixture: ComponentFixture<HomeComponent>;
     let component: HomeComponent;
-    let element: DebugElement
+    let element: DebugElement;
 
     beforeEach(async() => {
         TestBed.configureTestingModule({
@@ -20,7 +20,7 @@ describe('HomeComponent: Spec', () => {
         fixture.detectChanges();
     });
 
-    it('should have a canvas element', () => {        
+    it('should have a canvas element', () => {
         expect(element.query(By.css('canvas')))
             .not.toBeNull();
     });

@@ -16,10 +16,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [ 
-        BrowserModule, 
+    imports: [
+        BrowserModule,
         RouterModule.forRoot(
-            routes, 
+            routes,
             { enableTracing: true }
         )
     ],

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'home',
+  selector: 'app-home',
   styles: [ require('./home.styles.css').toString() ],
-  template: `    
+  template: `
     <p>SharedCanvas</p>
     <canvas></canvas>
   `
