@@ -6,7 +6,7 @@ module.exports = webpackMerge(webpackCommon, {
     mode: 'production',
     
     entry: {
-        boot: './src/boot.aot.ts'
+        boot: './src/boot.aot'
     },
 
     output: {
@@ -14,21 +14,7 @@ module.exports = webpackMerge(webpackCommon, {
         chunkFilename: 'js/[id].[hash:8].chunk.js'
     },
 
-    module: {
-        rules: [
-            {                
-                test: /\.(ts|js)$/,
-                loader: 'angular-router-loader',                
-                options: {
-                    aot: true
-                }
-            }              
-        ]
-    },
-
     plugins: [
-        new BundleAnalyzerPlugin({
-            analyzerMode: 'static'
-        })
+        new BundleAnalyzerPlugin({ analyzerMode: 'static' })
     ]
 });

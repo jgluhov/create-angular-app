@@ -1,6 +1,28 @@
-const webpackMerge = require('webpack-merge');
-const webpackBase = require('./webpack.base');
+const webpack = require('webpack');
+const helpers = require('./helpers');
 
-module.exports = webpackMerge(webpackBase, {
-    mode: 'development'
-});
+module.exports = {
+    mode: 'development',
+
+    resolve: {
+        extensions: ['.ts', '.js']    
+    },
+
+    module: {
+        rules: [
+            {
+                test: /\.ts$/,
+                loaders: [
+                    'awesome-typescript-loader'    
+                ]           
+            }           
+        ]
+    },
+
+    plugins: [
+        new webpack.ContextReplacementPlugin(
+            /\@angular(\\|\/)core(\\|\/)esm5/, 
+            helpers.root('src')
+        )
+    ]
+};

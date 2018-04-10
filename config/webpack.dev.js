@@ -6,23 +6,12 @@ module.exports = webpackMerge(webpackCommon, {
     mode: 'development',
 
     entry: {
-        boot: './src/boot.ts'
+        boot: './src/boot'
     },
 
     output: {
         filename: 'js/[name].bundle.js',
         chunkFilename: 'js/[id].chunk.js'
-    },
-
-    module: {
-        rules: [
-            {
-                test: /\.ts$/,
-                loaders: [
-                    'angular-router-loader'
-                ]                
-            }
-        ]
     },
 
     devServer: {

@@ -4,10 +4,10 @@
   "description": "A shared canvas",
   "main": "./src/boot.ts",
   "scripts": {
-    "start": "webpack-dev-server --config ./config/webpack.dev.js --open",
-    "build": "npm run compile && webpack --config ./config/webpack.prod.js",
+    "start": "NODE_ENV=development webpack-dev-server --config ./config/webpack.dev.js --open",
+    "build": "npm run compile && NODE_ENV=production webpack --config ./config/webpack.prod.js",
     "test": "karma start",
-    "cleanup": "rimraf ./aot ./build",
+    "cleanup": "rimraf aot docs",
     "compile": "npm run cleanup && ngc"
   },
   "keywords": [
