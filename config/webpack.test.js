@@ -15,6 +15,10 @@ module.exports = {
                 loaders: [
                     'awesome-typescript-loader'    
                 ]           
+            },
+            {
+                test: /\.css$/,
+                loader: 'null-loader'
             }           
         ]
     },

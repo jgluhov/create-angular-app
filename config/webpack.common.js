@@ -14,7 +14,7 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['.ts', '.js'],
+        extensions: ['.ts', '.js', '.css'],
         alias: {
             '@aot': helpers.root('aot')
         }    
@@ -34,7 +34,14 @@ module.exports = {
                 options: {
                     aot: ENV === 'production'
                 }
-            }     
+            },
+            {
+                test: /\.css$/,                
+                use: [ 
+                    'style-loader', 
+                    'css-loader'
+                ]
+            }              
         ]
     },
 
