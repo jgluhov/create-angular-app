@@ -14,7 +14,10 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['.ts', '.js']    
+        extensions: ['.ts', '.js'],
+        alias: {
+            '@aot': helpers.root('aot')
+        }    
     },
 
     module: {
