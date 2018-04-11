@@ -1,13 +1,11 @@
 const webpack = require('webpack');
-const aliases = require('./aliases');
 const helpers = require('./helpers');
 
 module.exports = {
   mode: 'development',
 
   resolve: {
-    extensions: ['.ts', '.js'],
-    alias: aliases
+    extensions: ['.ts', '.js']
   },
 
   module: {
@@ -15,12 +13,16 @@ module.exports = {
       {
         test: /\.ts$/,
         loaders: [
-          'awesome-typescript-loader'
+          'awesome-typescript-loader',
+          'angular2-template-loader?keepPath=true'
         ]
       },
       {
         test: /\.css$/,
-        loader: 'null-loader'
+        loader: 'raw-loader',
+        exclude: [
+          helpers.root('src', 'styles')
+        ]
       }
     ]
   },

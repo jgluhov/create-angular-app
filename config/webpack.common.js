@@ -1,7 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const helpers = require('./helpers');
-const aliases = require('./aliases');
 
 const ENV = process.env.NODE_ENV || process.env.ENV || 'development';
 
@@ -15,8 +14,7 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['.ts', '.js', '.css'],
-        alias: aliases
+        extensions: ['.ts', '.js', '.css']
     },
 
     module: {
@@ -36,10 +34,20 @@ module.exports = {
             },
             {
                 test: /\.css$/,
+                include: [
+                  helpers.root('src', 'styles')
+                ],
                 use: [
                   'style-loader',
                   'css-loader'
                 ]
+            },
+            {
+              test: /\.css$/,
+              loader: 'raw-loader',
+              exclude: [
+                helpers.root('src', 'styles')
+              ]
             }
         ]
     },

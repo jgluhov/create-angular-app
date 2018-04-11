@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
-  styles: [ require('@home/home.styles.css').toString() ],
+  styleUrls: [ './home.styles.css' ],
   template: `
     <p>SharedCanvas</p>
     <canvas></canvas>

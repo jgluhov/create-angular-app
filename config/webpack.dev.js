@@ -14,6 +14,17 @@ module.exports = webpackMerge(webpackCommon, {
         chunkFilename: 'js/[id].chunk.js'
     },
 
+    module: {
+      rules: [
+        {
+          test: /\.ts$/,
+          loaders: [
+            'angular2-template-loader'
+          ]
+        },
+      ]
+    },
+
     devServer: {
         contentBase: helpers.root('docs'),
         port: 3000,
