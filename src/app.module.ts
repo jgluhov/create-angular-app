@@ -2,26 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-
-const routes: Routes = [
-    {
-        path: '',
-        redirectTo: '/home',
-        pathMatch: 'full'
-    },
-    {
-        path: 'home',
-        loadChildren: './home/home.module#HomeModule'
-    }
-];
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
     imports: [
         BrowserModule,
-        RouterModule.forRoot(
-            routes,
-            { enableTracing: true }
-        )
+        AppRoutingModule
     ],
     declarations: [ AppComponent ],
     bootstrap: [ AppComponent ]

@@ -1,23 +1,22 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const helpers = require('./helpers');
+const aliases = require('./aliases');
 
 const ENV = process.env.NODE_ENV || process.env.ENV || 'development';
 
 module.exports = {
     entry: {
-        polyfills: './src/polyfills'
+      polyfills: './src/polyfills'
     },
 
     output: {
-        path: helpers.root('docs')
+      path: helpers.root('docs')
     },
 
     resolve: {
         extensions: ['.ts', '.js', '.css'],
-        alias: {
-            '@aot': helpers.root('aot')
-        }    
+        alias: aliases
     },
 
     module: {
@@ -25,36 +24,36 @@ module.exports = {
             {
                 test: /\.ts$/,
                 loaders: [
-                    'awesome-typescript-loader'    
-                ]           
-            },            
-            {                
+                  'awesome-typescript-loader'
+                ]
+            },
+            {
                 test: /\.(ts|js)$/,
-                loader: 'angular-router-loader',                
+                loader: 'angular-router-loader',
                 options: {
-                    aot: ENV === 'production'
+                  aot: ENV === 'production'
                 }
             },
             {
-                test: /\.css$/,                
-                use: [ 
-                    'style-loader', 
-                    'css-loader'
+                test: /\.css$/,
+                use: [
+                  'style-loader',
+                  'css-loader'
                 ]
-            }              
+            }
         ]
     },
 
     optimization: {
-        minimize: true,     
+        minimize: true,
         splitChunks: {
             cacheGroups: {
                 vendor: {
                     test: /[\\/]node_modules[\\/]/,
                     chunks: 'initial',
-                    filename: 'js/[name].bundle.js',                    
-                    name: 'vendor',                                         
-                }                
+                    filename: 'js/[name].bundle.js',
+                    name: 'vendor',
+                }
             }
         }
     },
@@ -67,8 +66,9 @@ module.exports = {
             }
         }),
         new webpack.ContextReplacementPlugin(
-            /\@angular(\\|\/)core(\\|\/)esm5/, 
+            /\@angular(\\|\/)core(\\|\/)esm5/,
             helpers.root('src')
-        )
+        ),
+        new webpack.EnvironmentPlugin(['NODE_ENV'])
     ]
 };
