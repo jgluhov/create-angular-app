@@ -57,7 +57,7 @@ module.exports = {
         splitChunks: {
             cacheGroups: {
                 vendor: {
-                    test: /[\\/]node_modules[\\/]/,
+                    test: /[\\/]node_modules[\\/](?!(core-js|zone\.js))/,
                     chunks: 'initial',
                     filename: 'js/[name].bundle.js',
                     name: 'vendor',

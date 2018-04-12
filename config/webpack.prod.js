@@ -5,6 +5,8 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 module.exports = webpackMerge(webpackCommon, {
     mode: 'production',
 
+    devtool: 'source-map',
+
     entry: {
         boot: './src/boot.aot'
     },
