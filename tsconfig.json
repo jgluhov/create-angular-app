@@ -71,6 +71,7 @@
     "skipMetadataEmit" : true
   },
   "exclude": [
-    "./src/boot.aot.ts"
+    "src/boot.aot.ts",
+    "e2e/"
   ]
 }
