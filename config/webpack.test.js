@@ -29,7 +29,7 @@ module.exports = {
 
   plugins: [
     new webpack.ContextReplacementPlugin(
-      /\@angular(\\|\/)core(\\|\/)esm5/,
+      /@angular(\\|\/)core(\\|\/)esm5/,
       helpers.root('src')
     )
   ]

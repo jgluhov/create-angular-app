@@ -3,20 +3,20 @@ const webpackCommon = require('./webpack.common');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = webpackMerge(webpackCommon, {
-    mode: 'production',
+  mode: 'production',
 
-    devtool: 'source-map',
+  devtool: 'source-map',
 
-    entry: {
-        boot: './src/boot.aot'
-    },
+  entry: {
+    boot: './src/boot.aot'
+  },
 
-    output: {
-        filename: 'js/[name].[hash:8].bundle.js',
-        chunkFilename: 'js/[id].[hash:8].chunk.js'
-    },
+  output: {
+    filename: 'js/[name].[hash:8].bundle.js',
+    chunkFilename: 'js/[id].[hash:8].chunk.js'
+  },
 
-    plugins: [
-        new BundleAnalyzerPlugin({ analyzerMode: 'static' })
-    ]
+  plugins: [
+    new BundleAnalyzerPlugin({ analyzerMode: 'static' })
+  ]
 });
