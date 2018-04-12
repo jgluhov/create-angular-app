@@ -20,8 +20,8 @@ describe('HomeComponent: Spec', () => {
         fixture.detectChanges();
     });
 
-    it('should have a canvas element', () => {
-        expect(element.query(By.css('canvas')))
+    it('should have a paragraph element', () => {
+        expect(element.query(By.css('p')))
             .not.toBeNull();
     });
 });
