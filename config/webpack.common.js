@@ -77,6 +77,9 @@ module.exports = {
       /@angular(\\|\/)core(\\|\/)esm5/,
       helpers.root('src')
     ),
-    new webpack.EnvironmentPlugin(['NODE_ENV'])
+    new webpack.EnvironmentPlugin({
+      NODE_ENV: 'development',
+      DEBUG: false
+    })
   ]
 };

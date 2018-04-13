@@ -17,7 +17,7 @@ const routes: Routes = [
     imports: [
         RouterModule.forRoot(
           routes,
-          { enableTracing: process.env.NODE_ENV === 'development' }
+          { enableTracing: process.env.DEBUG === 'true' }
         )
     ],
     exports: [
