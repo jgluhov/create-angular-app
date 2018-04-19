@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const helpers = require('./helpers');
+const { version } = require('../package.json');
 
 const ENV = process.env.NODE_ENV || process.env.ENV || 'development';
 
@@ -14,7 +15,10 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['.ts', '.js', '.css']
+        extensions: ['.ts', '.js', '.scss'],
+        alias: {
+            '@modules': helpers.root('modules')
+        }
     },
 
     module: {
@@ -37,19 +41,21 @@ module.exports = {
                 include: [
                     helpers.root('src', 'styles')
                 ],
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader'
-                ]
+                use: [{
+                    loader: 'style-loader'
+                }, {
+                    loader: 'css-loader'
+                }, {
+                    loader: 'sass-loader'
+                }],
             },
             {
                 test: /\.scss$/,
-                loaders: [
-                    'raw-loader',
-                    'css-loader',
-                    'sass-loader'
-                ],
+                use: [{
+                    loader: 'raw-loader'
+                }, {
+                    loader: 'sass-loader'
+                }],
                 exclude: [
                     helpers.root('src', 'styles')
                 ]
@@ -84,6 +90,7 @@ module.exports = {
         ),
         new webpack.EnvironmentPlugin({
             NODE_ENV: 'development',
+            VERSION: version,
             DEBUG: false
         })
     ]
