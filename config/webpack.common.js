@@ -1,7 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const helpers = require('./helpers');
-const { version } = require('../package.json');
 
 const ENV = process.env.NODE_ENV || process.env.ENV || 'development';
 
@@ -90,7 +89,6 @@ module.exports = {
         ),
         new webpack.EnvironmentPlugin({
             NODE_ENV: 'development',
-            VERSION: version,
             DEBUG: false
         })
     ]
